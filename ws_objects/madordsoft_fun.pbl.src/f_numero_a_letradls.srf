@@ -1,0 +1,234 @@
+﻿$PBExportHeader$f_numero_a_letradls.srf
+$PBExportComments$convierte un numero en su expresion escrita
+global type f_numero_a_letradls from function_object
+end type
+
+forward prototypes
+global function string f_numero_a_letradls (string numero)
+end prototypes
+
+global function string f_numero_a_letradls (string numero);string s_result[1 to 15], s_x, s_retornar, s_centavos
+char s_numero[1 to 15]
+long l_x
+int i_i,li_coma
+
+//MessageBox("numero", numero)
+
+string vcentavos
+vcentavos = right(numero,2)
+//MessageBox("numero", vcentavos)
+
+s_x=string(numero)
+
+l_x=len(s_x)
+
+IF pos(s_x,".")<>0 AND pos(s_x,",")<>0 then
+	messagebox("Falla severa","Error al convertir de número a letras. Solicite asistencia. Se detendrá la aplicación.",stopsign!)
+	HALT CLOSE
+END IF
+
+li_coma=pos(s_x,".")+pos(s_x,",")   //se supone que solo habrá un separador
+IF li_coma <> 0 then
+	s_centavos=f_numero_a_letra(left(right(s_x,l_x - li_coma)+"0",2))
+	s_x=left(s_x,li_coma - 1)
+	l_x=len(s_x)
+	s_centavos=trim(s_centavos)
+	IF right(s_centavos,3)="uno" THEN s_centavos=left(s_centavos,len(s_centavos)-1)
+END IF
+
+s_numero=fill("_",15 - l_x)+s_x
+
+FOR i_i=15 TO 1 STEP -1
+	CHOOSE CASE s_numero[i_i]
+		CASE "1"
+			CHOOSE CASE i_i
+				CASE 3,6,9,12,15
+					IF i_i=15 THEN
+								 	s_result[i_i]="uno"
+								 ELSE
+									s_result[i_i]="un"
+					END IF
+				CASE 2,5,8,11,14
+					CHOOSE CASE s_numero[i_i + 1]
+						CASE "1"
+							s_result[i_i+1]="once"
+						CASE "2"
+							s_result[i_i+1]="doce"
+						CASE "3"
+							s_result[i_i+1]="trece"
+						CASE "4"
+							s_result[i_i+1]="catorce"
+						CASE "5"
+							s_result[i_i+1]="quince"				
+						CASE ELSE
+							IF s_numero[i_i+1]="0" THEN
+								s_result[i_i]="diez"
+							ELSE
+								s_result[i_i]="diez y"
+							END IF
+					END CHOOSE
+				CASE 1,4,7,10,13
+					//s_result[i_i]="cien(to)"
+					IF s_numero[i_i+1]="0" AND s_numero[i_i+2]="0"THEN
+						s_result[i_i]="cien"
+					ELSE
+						s_result[i_i]="ciento"
+					END IF		 
+			END CHOOSE
+
+		CASE "2"
+			CHOOSE CASE i_i
+				CASE 3,6,9,12,15
+					s_result[i_i]="dos"
+				CASE 2,5,8,11,14
+					IF s_numero[i_i+1]="0" THEN
+						s_result[i_i]="veinte"
+					ELSE
+						s_result[i_i]="veinte y"
+					END IF
+				CASE 1,4,7,10,13
+					s_result[i_i]="doscientos"
+			END CHOOSE
+		CASE "3"
+			CHOOSE CASE i_i
+				CASE 3,6,9,12,15
+					s_result[i_i]="tres"
+				CASE 2,5,8,11,14
+					IF s_numero[i_i+1]="0" THEN
+						s_result[i_i]="treinta"
+					ELSE
+						s_result[i_i]="treinta y"
+					END IF
+				CASE 1,4,7,10,13
+					s_result[i_i]="trescientos"
+			END CHOOSE
+		CASE "4"
+			CHOOSE CASE i_i
+				CASE 3,6,9,12,15
+					s_result[i_i]="cuatro"
+				CASE 2,5,8,11,14
+					IF s_numero[i_i+1]="0" THEN
+						s_result[i_i]="cuarenta"
+					ELSE
+						s_result[i_i]="cuarenta y"
+					END IF
+				CASE 1,4,7,10,13
+					s_result[i_i]="cuatrocientos"
+			END CHOOSE
+		CASE "5"
+			CHOOSE CASE i_i
+				CASE 3,6,9,12,15
+					s_result[i_i]="cinco"
+				CASE 2,5,8,11,14
+					IF s_numero[i_i+1]="0" THEN
+						s_result[i_i]="cincuenta"
+					ELSE
+					s_result[i_i]="cincuenta y"
+					END IF
+				CASE 1,4,7,10,13
+					s_result[i_i]="quinientos"
+			END CHOOSE
+		CASE "6"
+			CHOOSE CASE i_i
+				CASE 3,6,9,12,15
+					s_result[i_i]="seis"
+				CASE 2,5,8,11,14
+					IF s_numero[i_i+1]="0" THEN
+						s_result[i_i]="sesenta"
+					ELSE
+						s_result[i_i]="sesenta y"
+					END IF
+				CASE 1,4,7,10,13
+					s_result[i_i]="seiscientos"
+			END CHOOSE
+		CASE "7"
+			CHOOSE CASE i_i
+				CASE 3,6,9,12,15
+					s_result[i_i]="siete"
+				CASE 2,5,8,11,14
+					IF s_numero[i_i+1]="0" THEN
+						s_result[i_i]="setenta"
+					ELSE
+						s_result[i_i]="setenta y"
+					END IF
+				CASE 1,4,7,10,13
+					s_result[i_i]="setecientos"
+			END CHOOSE
+		CASE "8"
+			CHOOSE CASE i_i
+				CASE 3,6,9,12,15
+					s_result[i_i]="ocho"
+				CASE 2,5,8,11,14
+					IF s_numero[i_i+1]="0" THEN
+						s_result[i_i]="ochenta"
+					ELSE
+						s_result[i_i]="ochenta y"
+					END IF
+				CASE 1,4,7,10,13
+					s_result[i_i]="ochocientos"
+			END CHOOSE
+		CASE "9"
+			CHOOSE CASE i_i
+				CASE 3,6,9,12,15
+					s_result[i_i]="nueve"
+				CASE 2,5,8,11,14
+					IF s_numero[i_i+1]="0" THEN
+						s_result[i_i]="noventa"
+					ELSE
+						s_result[i_i]="noventa y"
+					END IF
+				CASE 1,4,7,10,13
+					s_result[i_i]="novecientos"
+			END CHOOSE
+		CASE "."
+			s_result[i_i]="con"
+	END CHOOSE
+NEXT
+
+s_retornar=""
+
+FOR i_i=1  TO 15
+	IF isnumber(s_numero[i_i]) THEN
+		CHOOSE CASE i_i
+			CASE 12
+				IF s_numero[i_i ]<>"0" OR s_numero[i_i - 1]<>"0" OR	 s_numero[i_i - 2]<>"0" THEN
+					s_result[i_i]=s_result[i_i]+" mil "
+				END IF
+			CASE 9
+				IF s_numero[i_i - 1 ]="_" AND s_numero[i_i]="1" THEN 
+					s_result[i_i]=s_result[i_i]+" millon"
+					ELSE				
+					IF s_numero[i_i ]<>"0" OR s_numero[i_i - 1]<>"0" OR	 s_numero[i_i - 2]<>"0" OR	 s_numero[i_i - 3]<>"0" OR	 s_numero[i_i - 4]<>"0" OR	 s_numero[i_i - 5]<>"0" THEN
+						s_result[i_i]=s_result[i_i]+" millones"
+					END IF
+				END IF
+			CASE 6
+				IF s_numero[i_i]<>"0" OR s_numero[i_i - 1]<>"0" OR	 s_numero[i_i - 2]<>"0" THEN
+					//s_result[i_i]=s_result[i_i]+" mil millones "
+					s_result[i_i]=s_result[i_i]+" mil"
+				END IF
+			CASE 3
+				IF s_numero[i_i - 1 ]="_" AND s_numero[i_i]="1" THEN 
+					s_result[i_i]=s_result[i_i]+" billon"
+					ELSE		
+					IF s_numero[i_i]<>"0" OR s_numero[i_i - 1]<>"0" OR	 s_numero[i_i - 2]<>"0" THEN
+						s_result[i_i]=s_result[i_i]+" billones"
+					END IF
+				END IF
+		END CHOOSE		
+	END IF
+	s_retornar= s_retornar+" "+s_result[i_i]
+NEXT
+
+IF s_centavos <>"" THEN
+//	s_retornar=s_retornar+" Dolares $ con "+s_centavos +"/100 "
+	s_retornar=s_retornar+" Dolares $ con "+vcentavos +"/100 "
+else
+	s_retornar=s_retornar+" EXACTOS "
+	
+END IF
+
+return trim(s_retornar)
+
+end function
+

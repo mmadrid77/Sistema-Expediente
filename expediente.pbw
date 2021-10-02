@@ -1,0 +1,8 @@
+Save Format v3.0(19990112)
+@begin Targets
+ 0 "expediente.pbt";
+@end;
+DefaultTarget "expediente.pbt";
+SharpSolution "C:\\Users\\user\\source\\repos\\ClassLibrary1\\ClassLibrary1.sln";
+DefaultExportEncode "UTF-8";
+DefaultRemoteTarget "expediente.pbt";

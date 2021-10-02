@@ -1,0 +1,57 @@
+﻿$PBExportHeader$f_fecha_a_letras.srf
+$PBExportComments$convierte un numero en su expresion escrita
+global type f_fecha_a_letras from function_object
+end type
+
+forward prototypes
+global function string f_fecha_a_letras (date fechafuente)
+end prototypes
+
+global function string f_fecha_a_letras (date fechafuente);
+Date ld_fecha 
+Integer li_mes 
+String ls_mes, is_dia, is_year, ls_fechalet, ls_dia, ls_year 
+
+ld_fecha = date(fechafuente)
+ls_dia = String(day(ld_fecha)) 
+li_mes = Month(ld_fecha) 
+ls_year = String(Year(ld_fecha)) 
+
+Choose Case li_mes 
+	Case 1 
+	ls_mes = ' DE ENERO DE ' 
+	Case 2 
+	ls_mes = ' DE FEBRERO DE ' 
+	Case 3 
+	ls_mes = ' DE MARZO DE ' 
+	Case 4 
+	ls_mes = ' DE ABRIL DE ' 
+	Case 5 
+	ls_mes = ' DE MAYO DE ' 
+	Case 6 
+	ls_mes = ' DE JUNIO ' 
+	Case 7 
+	ls_mes = ' DE JULIO DE ' 
+	Case 8 
+	ls_mes = ' DE AGOSTO DE ' 
+	Case 9 
+	ls_mes = ' DE SEPTIEMBRE DE ' 
+	case 10 
+	ls_mes = ' DE OCTUBRE DE' 
+	Case 11 
+	ls_mes = ' DE NOVIEMBRE DE ' 
+	Case 12 
+	ls_mes = ' DE DICIEMBRE ' 
+End Choose 
+
+ls_fechalet = ls_dia + ls_mes + '  '+ ls_year 
+
+xfechaletras = ls_fechalet
+
+return trim(xfechaletras)
+
+
+
+
+end function
+

@@ -1,0 +1,39 @@
+﻿$PBExportHeader$fx_existe.srf
+global type fx_existe from function_object
+end type
+
+forward prototypes
+global function integer existe (integer luz)
+global function integer fx_existe (integer luz)
+end prototypes
+
+global function integer existe (integer luz);
+string codigo, based
+
+
+luz = 1
+return luz
+//
+//select count(codigocert) into:r3 from certifica where codigocert=:mcer;
+//
+//if r1=0 then
+//	messagebox(this.title, "Verifique Bascula no Existe", exclamation!)
+//     return 
+//end if
+end function
+
+global function integer fx_existe (integer luz);
+string codigo, based
+
+
+luz = 1
+return luz
+//
+//select count(codigocert) into:r3 from certifica where codigocert=:mcer;
+//
+//if r1=0 then
+//	messagebox(this.title, "Verifique Bascula no Existe", exclamation!)
+//     return 
+//end if
+end function
+

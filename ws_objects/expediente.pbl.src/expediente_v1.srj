@@ -1,0 +1,24 @@
+﻿$PBExportHeader$expediente_v1.srj
+$PBExportComments$Generated Application Executable Project
+EXE:expediente.exe,,0,1,1
+CMP:0,0,0,2,0,0,1
+COM:Appeon
+DES:Appeon Product File
+CPY:
+PRD:PowerBuilder Enterprise Series
+PVS:1.0.0.1
+PVN:1,0,0,1
+FVS:1.0.0.1
+FVN:1,0,0,1
+MAN:0,asInvoker,0
+PBD:expediente.pbl,,1
+PBD:madordsoft_fun.pbl,,1
+OBJ:E:\Sistema Expediente\expediente.pbl,w_nuevoexpedienteedit,w
+OBJ:E:\Sistema Expediente\expediente.pbl,dwr_garantia,d
+OBJ:E:\Sistema Expediente\expediente.pbl,w_richtext,w
+OBJ:E:\Sistema Expediente\expediente.pbl,expediente,a
+OBJ:E:\Sistema Expediente\expediente.pbl,dwf_equipos,d
+OBJ:E:\Sistema Expediente\expediente.pbl,dwg_equipos,d
+OBJ:E:\Sistema Expediente\expediente.pbl,dwf_equiposedit,d
+OBJ:E:\Sistema Expediente\expediente.pbl,w_listadoexpendiente,w
+OBJ:E:\Sistema Expediente\expediente.pbl,w_nuevoexpediente,w
