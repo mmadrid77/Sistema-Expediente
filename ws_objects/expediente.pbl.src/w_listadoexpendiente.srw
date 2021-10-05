@@ -127,6 +127,9 @@ string facename = "Tahoma"
 string text = "none"
 end type
 
+event clicked;Messagebox("Info", "prueba")
+end event
+
 type cb_4 from commandbutton within w_listadoexpendiente
 integer x = 2217
 integer y = 372
@@ -183,7 +186,7 @@ boolean border = true
 borderstyle borderstyle = stylelowered!
 date maxdate = Date("2999-12-31")
 date mindate = Date("1800-01-01")
-datetime value = DateTime(Date("2021-10-05"), Time("01:09:53.000000"))
+datetime value = DateTime(Date("2021-10-05"), Time("13:14:01.000000"))
 integer textsize = -10
 fontcharset fontcharset = ansi!
 fontpitch fontpitch = variable!
@@ -204,7 +207,7 @@ boolean border = true
 borderstyle borderstyle = stylelowered!
 date maxdate = Date("2999-12-31")
 date mindate = Date("1800-01-01")
-datetime value = DateTime(Date("2021-10-05"), Time("01:09:53.000000"))
+datetime value = DateTime(Date("2021-10-05"), Time("13:14:01.000000"))
 integer textsize = -10
 fontcharset fontcharset = ansi!
 fontpitch fontpitch = variable!
