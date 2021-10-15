@@ -2,6 +2,8 @@
 forward
 global type w_estatus_equipos from window
 end type
+type cb_1 from commandbutton within w_estatus_equipos
+end type
 type dw_3 from datawindow within w_estatus_equipos
 end type
 type sle_3 from singlelineedit within w_estatus_equipos
@@ -34,6 +36,7 @@ boolean resizable = true
 long backcolor = 67108864
 string icon = "AppIcon!"
 boolean center = true
+cb_1 cb_1
 dw_3 dw_3
 sle_3 sle_3
 st_3 st_3
@@ -47,6 +50,7 @@ end type
 global w_estatus_equipos w_estatus_equipos
 
 on w_estatus_equipos.create
+this.cb_1=create cb_1
 this.dw_3=create dw_3
 this.sle_3=create sle_3
 this.st_3=create st_3
@@ -56,7 +60,8 @@ this.dw_2=create dw_2
 this.dw_1=create dw_1
 this.sle_1=create sle_1
 this.st_1=create st_1
-this.Control[]={this.dw_3,&
+this.Control[]={this.cb_1,&
+this.dw_3,&
 this.sle_3,&
 this.st_3,&
 this.st_2,&
@@ -68,6 +73,7 @@ this.st_1}
 end on
 
 on w_estatus_equipos.destroy
+destroy(this.cb_1)
 destroy(this.dw_3)
 destroy(this.sle_3)
 destroy(this.st_3)
@@ -98,6 +104,21 @@ dw_2.retrieve()
 dw_3.SetTransObject(sqlca)
 dw_3.retrieve()
 end event
+
+type cb_1 from commandbutton within w_estatus_equipos
+integer x = 2249
+integer y = 56
+integer width = 402
+integer height = 112
+integer taborder = 20
+integer textsize = -10
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Tahoma"
+string text = "lito"
+end type
 
 type dw_3 from datawindow within w_estatus_equipos
 integer x = 128
