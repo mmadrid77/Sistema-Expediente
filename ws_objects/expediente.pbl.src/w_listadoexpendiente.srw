@@ -133,6 +133,9 @@ string facename = "Tahoma"
 string text = "LITO"
 end type
 
+event clicked;close(w_listadoexpendiente)
+end event
+
 type cb_5 from commandbutton within w_listadoexpendiente
 integer x = 1851
 integer y = 1852
@@ -207,7 +210,7 @@ boolean border = true
 borderstyle borderstyle = stylelowered!
 date maxdate = Date("2999-12-31")
 date mindate = Date("1800-01-01")
-datetime value = DateTime(Date("2021-10-24"), Time("21:50:41.000000"))
+datetime value = DateTime(Date("2021-10-24"), Time("22:05:00.000000"))
 integer textsize = -10
 fontcharset fontcharset = ansi!
 fontpitch fontpitch = variable!
@@ -228,7 +231,7 @@ boolean border = true
 borderstyle borderstyle = stylelowered!
 date maxdate = Date("2999-12-31")
 date mindate = Date("1800-01-01")
-datetime value = DateTime(Date("2021-10-24"), Time("21:50:41.000000"))
+datetime value = DateTime(Date("2021-10-24"), Time("22:05:00.000000"))
 integer textsize = -10
 fontcharset fontcharset = ansi!
 fontpitch fontpitch = variable!
