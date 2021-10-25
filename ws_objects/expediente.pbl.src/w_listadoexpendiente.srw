@@ -2,6 +2,8 @@
 forward
 global type w_listadoexpendiente from window
 end type
+type cb_6 from commandbutton within w_listadoexpendiente
+end type
 type cb_5 from commandbutton within w_listadoexpendiente
 end type
 type cb_4 from commandbutton within w_listadoexpendiente
@@ -43,6 +45,7 @@ boolean maxbox = true
 long backcolor = 67108864
 string icon = "Form_icon_2!"
 boolean center = true
+cb_6 cb_6
 cb_5 cb_5
 cb_4 cb_4
 cb_3 cb_3
@@ -61,6 +64,7 @@ end type
 global w_listadoexpendiente w_listadoexpendiente
 
 on w_listadoexpendiente.create
+this.cb_6=create cb_6
 this.cb_5=create cb_5
 this.cb_4=create cb_4
 this.cb_3=create cb_3
@@ -75,7 +79,8 @@ this.sle_1=create sle_1
 this.st_3=create st_3
 this.st_2=create st_2
 this.st_1=create st_1
-this.Control[]={this.cb_5,&
+this.Control[]={this.cb_6,&
+this.cb_5,&
 this.cb_4,&
 this.cb_3,&
 this.dp_2,&
@@ -92,6 +97,7 @@ this.st_1}
 end on
 
 on w_listadoexpendiente.destroy
+destroy(this.cb_6)
 destroy(this.cb_5)
 destroy(this.cb_4)
 destroy(this.cb_3)
@@ -111,6 +117,21 @@ end on
 event activate;dw_1.SetTransObject(sqlca)
 dw_1.retrieve(xfechainicial, xfechafinal)
 end event
+
+type cb_6 from commandbutton within w_listadoexpendiente
+integer x = 123
+integer y = 1852
+integer width = 402
+integer height = 112
+integer taborder = 30
+integer textsize = -10
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Tahoma"
+string text = "LITO"
+end type
 
 type cb_5 from commandbutton within w_listadoexpendiente
 integer x = 1851
@@ -186,7 +207,7 @@ boolean border = true
 borderstyle borderstyle = stylelowered!
 date maxdate = Date("2999-12-31")
 date mindate = Date("1800-01-01")
-datetime value = DateTime(Date("2021-10-05"), Time("13:14:01.000000"))
+datetime value = DateTime(Date("2021-10-24"), Time("21:50:41.000000"))
 integer textsize = -10
 fontcharset fontcharset = ansi!
 fontpitch fontpitch = variable!
@@ -207,7 +228,7 @@ boolean border = true
 borderstyle borderstyle = stylelowered!
 date maxdate = Date("2999-12-31")
 date mindate = Date("1800-01-01")
-datetime value = DateTime(Date("2021-10-05"), Time("13:14:01.000000"))
+datetime value = DateTime(Date("2021-10-24"), Time("21:50:41.000000"))
 integer textsize = -10
 fontcharset fontcharset = ansi!
 fontpitch fontpitch = variable!
